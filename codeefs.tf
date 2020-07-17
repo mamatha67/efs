@@ -130,7 +130,7 @@ resource "null_resource" "nullremote1" {
       "sudo mount -t efs ${aws_efs_file_system.efs.id}:/ /var/www/html",
       "sudo echo '${aws_efs_file_system.efs.id}:/ /var/www/html efs defaults,_netdev 0 0' >> /etc/fstab",
       "sudo rm -rf /var/www/html/*",
-      "sudo git clone ht /var/www/html/"
+      "sudo git clone https://github.com/mamatha67/efs /var/www/html/"
     ]
   }
 }
