@@ -48,6 +48,14 @@ resource "aws_s3_bucket" "b" {
     Name        = "My bucket"
   }
 }
+resource "aws_s3_bucket_object""object"{
+ bucket=aws_s3_bucket.b.id
+ key   ="images.png"
+}
+locals{
+ s3_origin_id ="aws_s3_bucket.b.id"
+ depends_on=[aws_s3_bucket.b]
+}
 resource "aws_security_group" "s1" {
   name        = "mysgroup1"
   description = "Allow NFS"
